@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+<template id="card-template">
+  <div class="card my-5 shadow-1">
+    <div class="card-header">
+      <h3></h3>
+    </div>
+    <div class="card-body"></div>
+    <div class="card-footer"></div>
+  </div>
+</template>
+
+<section id="tools">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-8">
+          <div class="spinner">
+              <div class="rect1"></div>
+              <div class="rect2"></div>
+              <div class="rect3"></div>
+              <div class="rect4"></div>
+              <div class="rect5"></div>
+            </div>
+        <div id="cards">
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+
+$.getJSON('https://trello.com/b/bHJxD4Zm.json', function(data) {
+  if ('content' in document.createElement('template')) {
+
+    document.querySelector(".spinner").style.display = 'none';
+
+    for(var i = 0, len = data.cards.length; i < len; i++) {
+      var card = data.cards[i];
+      var t = document.querySelector('#card-template');
+      t.content.querySelector(".card-header h3").textContent = card.name;
+      t.content.querySelector(".card-body").textContent = card.desc;
+
+      var target = document.querySelector("#cards");
+      var clone = document.importNode(t.content, true);
+      target.appendChild(clone);
+    }
+  } else {
+  }
+});
+
+</script>
