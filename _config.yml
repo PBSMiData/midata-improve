@@ -26,7 +26,11 @@ markdown: kramdown
 
 permalink: none
 
-form_action: 'https://formspree.io/filou.linux@gmail.com'
+# form_action: 'https://formspree.io/filou.linux@gmail.com'
+trello_board_url: 'https://trello.com/b/bHJxD4Zm.json'
+# trello_board_url: 'data.json'
+trello_board_lists:
+  - '57c71ca06ddd0ec02a083729'
 
 sass:
   # loading path from site root
